@@ -236,11 +236,23 @@ function displayimg(){
                 win ++;}
                 
             }else{
-                //number.classList.add("class1")
-                //document.getElementById(nid2).classList.add("class1")
-                setTimeout(displayimg(),1000)
-                reset()
-                displayimg()
+                number.classList.add("class1")
+                document.getElementById(nid2).classList.add("class1")
+                setTimeout(reset,1000)
+                function reset(){
+                    uno.show=false;
+                    dos.show=false;
+                    tres.show=false;
+                    cuatro.show=false;
+                    cinco.show=false;
+                    seis.show=false;
+                    siete.show=false;
+                    ocho.show=false;
+                    nueve.show=false;
+                    cero.show=false;
+                    displayimg()
+                }
+                
             }
             conde=0;
             digito1="";
@@ -277,18 +289,7 @@ function changeL(){
     nueve.link=intento[mazo[9]]
     cero.link=intento[mazo[0]]
 }
-function reset(){
-    uno.show=false;
-    dos.show=false;
-    tres.show=false;
-    cuatro.show=false;
-    cinco.show=false;
-    seis.show=false;
-    siete.show=false;
-    ocho.show=false;
-    nueve.show=false;
-    cero.show=false;
-}
+
 
 function game(){
     if(start){
