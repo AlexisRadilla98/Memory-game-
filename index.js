@@ -3,12 +3,16 @@ const dos=new Pokemon(2,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665
 const tres=new Pokemon(3,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665b584c?rik=VX6HpLVptUIOMQ&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fpokemon-symbol-logo-png-31.png&ehk=aSt1644QEFHVKT7thXmBsOPsr2lNpCODH4hF6OqUS5M%3d&risl=&pid=ImgRaw&r=0",false,false)
 const cuatro=new Pokemon(4,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665b584c?rik=VX6HpLVptUIOMQ&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fpokemon-symbol-logo-png-31.png&ehk=aSt1644QEFHVKT7thXmBsOPsr2lNpCODH4hF6OqUS5M%3d&risl=&pid=ImgRaw&r=0",false,false)
 const cinco=new Pokemon(5,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665b584c?rik=VX6HpLVptUIOMQ&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fpokemon-symbol-logo-png-31.png&ehk=aSt1644QEFHVKT7thXmBsOPsr2lNpCODH4hF6OqUS5M%3d&risl=&pid=ImgRaw&r=0",false,false)
+const seis=new Pokemon(6,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665b584c?rik=VX6HpLVptUIOMQ&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fpokemon-symbol-logo-png-31.png&ehk=aSt1644QEFHVKT7thXmBsOPsr2lNpCODH4hF6OqUS5M%3d&risl=&pid=ImgRaw&r=0",false,false)
+const siete=new Pokemon(7,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665b584c?rik=VX6HpLVptUIOMQ&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fpokemon-symbol-logo-png-31.png&ehk=aSt1644QEFHVKT7thXmBsOPsr2lNpCODH4hF6OqUS5M%3d&risl=&pid=ImgRaw&r=0",false,false)
+const ocho=new Pokemon(8,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665b584c?rik=VX6HpLVptUIOMQ&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fpokemon-symbol-logo-png-31.png&ehk=aSt1644QEFHVKT7thXmBsOPsr2lNpCODH4hF6OqUS5M%3d&risl=&pid=ImgRaw&r=0",false,false)
+const nueve=new Pokemon(9,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665b584c?rik=VX6HpLVptUIOMQ&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fpokemon-symbol-logo-png-31.png&ehk=aSt1644QEFHVKT7thXmBsOPsr2lNpCODH4hF6OqUS5M%3d&risl=&pid=ImgRaw&r=0",false,false)
+const cero=new Pokemon(0,"https://th.bing.com/th/id/R.fd721f81cf12ebf7b3234c2c665b584c?rik=VX6HpLVptUIOMQ&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fpokemon-symbol-logo-png-31.png&ehk=aSt1644QEFHVKT7thXmBsOPsr2lNpCODH4hF6OqUS5M%3d&risl=&pid=ImgRaw&r=0",false,false)
 const mazo=[1,2,3,4,5,1,2,3,4,5];
 let nombre=document.getElementById("yo");
 let div=document.querySelectorAll(".carta")
 let imageCarts=document.querySelectorAll("pokebola")
 let ButtonsC=document.querySelectorAll("button");
-console.log(div)
 let pokemon=null
 let id=null
 let start=false;
@@ -64,33 +68,44 @@ button.addEventListener("click",(e)=>{
      } ))
 })
 save.addEventListener("click",(e)=>{
+    
+    if(i==0){ 
+        mix(mazo)
+        console.log(mazo)
+    }
     if(i<5){
         const pk=new Pokemon((i+1),pokemonImage.src,false,false)
+        const pk2=new Pokemon((i+6),pokemonImage.src,false,false)
         i++;
         nombre.innerText="'"+pk.numero+"'";
         intento[i]=pk.link;
         switch(i) {
             case 1:
               uno.link=pk.link
+              seis.link=pk2.link
               break;
             case 2:
                 dos.link=pk.link
+                siete.link=pk2.link
               break;
             case 3:
                 tres.link=pk.link
+                ocho.link=pk2.link
               break;
             case 4:
                 cuatro.link=pk.link
+                nueve.link=pk2.link
               break;
             case 5:
                 cinco.link=pk.link
+                cero.link=pk2.link
               break;
               // code block
           }
     }
     if(i>=5){
-        loaded=true 
-        mix(mazo)
+        changeL()
+        loaded=true
         nombre.innerText="ready"
         displayimg()
     }
@@ -109,54 +124,54 @@ function displayimg(){
     setTimeout(Elegir,500)
         function Elegir(){
             if(uno.show==true){
-                document.getElementById("1").src=intento[mazo[1]];
+                document.getElementById('1').src=uno.link;
             }else{
-                document.getElementById("1").src=uno.bola;
+                document.getElementById('1').src=uno.bola;
             }
             if(dos.show==true){
-                document.getElementById("2").src=intento[mazo[2]];
+                document.getElementById('2').src=dos.link;
             }else{
-                document.getElementById("2").src=dos.bola;
+                document.getElementById('2').src=dos.bola;
             }
             if(tres.show==true){
-                document.getElementById("3").src=intento[mazo[3]];
+                document.getElementById('3').src=tres.link;
             }else{
-                document.getElementById("3").src=tres.bola;
+                document.getElementById('3').src=tres.bola;
             }
             if(cuatro.show==true){
-                document.getElementById("4").src=intento[mazo[4]];
+                document.getElementById('4').src=cuatro.link;
             }else{
-                document.getElementById("4").src=cuatro.bola;
+                document.getElementById('4').src=cuatro.bola;
             }
             if(cinco.show==true){
-                document.getElementById("5").src=intento[mazo[5]];
+                document.getElementById('5').src=cinco.link;
             }else{
-                document.getElementById("5").src=cinco.bola;
+                document.getElementById('5').src=cinco.bola;
             }
-            if(uno.show2==true){
-                document.getElementById("6").src=intento[mazo[6]];
+            if(seis.show==true){
+                document.getElementById('6').src=seis.link;
             }else{
-                document.getElementById("6").src=uno.bola;
+                document.getElementById('6').src=seis.bola;
             }
-            if(dos.show2==true){
-                document.getElementById("7").src=intento[mazo[7]];
+            if(siete.show==true){
+                document.getElementById('7').src=siete.link;
             }else{
-                document.getElementById("7").src=dos.bola;
+                document.getElementById('7').src=siete.bola;
             }
-            if(tres.show2==true){
-                document.getElementById("8").src=intento[mazo[8]];
+            if(ocho.show==true){
+                document.getElementById('8').src=ocho.link;
             }else{
-                document.getElementById("8").src=tres.bola;
+                document.getElementById('8').src=ocho.bola;
             }
-            if(cuatro.show2==true){
-                document.getElementById("9").src=intento[mazo[9]];
+            if(nueve.show==true){
+                document.getElementById('9').src=nueve.link;
             }else{
-                document.getElementById("9").src=cuatro.bola;
+                document.getElementById('9').src=nueve.bola;
             }
-            if(cinco.show2==true){
-                document.getElementById("0").src=intento[mazo[0]];
+            if(cero.show==true){
+                document.getElementById('0').src=cero.link;
             }else{
-                document.getElementById("0").src=cinco.bola;
+                document.getElementById('0').src=cero.bola;
             }
         }
     
@@ -190,46 +205,53 @@ function displayimg(){
                     if(cinco.show){cinco.show=false}else{cinco.show=true;digito1=cinco}
                 break;
             case "carta6":
-                    if(uno.show2){uno.show2=false}else{uno.show2=true;digito1=uno}
+                    if(seis.show){seis.show=false}else{seis.show=true;digito1=seis}
                 break;
             case "carta7":
-                    if(dos.show2){dos.show2=false}else{dos.show2=true;digito1=dos}
+                    if(siete.show){siete.show=false}else{siete.show=true;digito1=siete}
                 break;
             case "carta8":
-                if(tres.show2){tres.show2=false}else{tres.show2=true;digito1=tres}
+                if(ocho.show){ocho.show=false}else{ocho.show=true;digito1=ocho}
                 break;
             case "carta9":
-                if(cuatro.show2){cuatro.show2=false}else{cuatro.show2=true;digito1=cuatro}
+                if(nueve.show){nueve.show=false}else{nueve.show=true;digito1=nueve}
                 break;
             case "carta10":
-                if(cinco.show2){cinco.show2=false}else{cinco.show2=true;digito1=cinco}
+                if(cero.show){cero.show=false}else{cero.show=true;digito1=cero}
                 break;
             default:
                 break;
         }
-        
+        console.log(digito1.link)
         displayimg();
         conde ++;
-        console.log(conde)
         if(conde==1){digito2=digito1;nid2=nid1}
         if(conde==2){
-            console.log(digito1.numero)
-            console.log(digito2.numero)
             moves++;
-            if(digito1.numero==digito2.numero){
-                
+            if((digito1.link==digito2.link) && (nid1!=nid2)){
+                setTimeout(Pareja,1000)
+                function Pareja(){
                 document.getElementById(nid1).hidden=true
                 document.getElementById(nid2).hidden=true
-                console.log(moves)
-                win ++;
+                win ++;}
+                
             }else{
-                number.classList.add("class1")
-                document.getElementById(nid2).classList.add("class1")
+                //number.classList.add("class1")
+                //document.getElementById(nid2).classList.add("class1")
+                setTimeout(displayimg(),1000)
                 reset()
+                displayimg()
             }
             conde=0;
+            digito1="";
+            digito2="";
         }
-        if(win==5){alert("ganaste en "+moves+" movimientos")}
+        if(win==5){
+            setTimeout(ganaste,800)
+            function ganaste(){
+                alert("ganaste en "+moves+" movimientos")
+            }
+        }
     })
     
 })
@@ -243,18 +265,29 @@ function mix(array) {
        // console.log(array[i])
     }
 }
+function changeL(){
+    uno.link=intento[mazo[1]]
+    dos.link=intento[mazo[2]]
+    tres.link=intento[mazo[3]]
+    cuatro.link=intento[mazo[4]]
+    cinco.link=intento[mazo[5]]
+    seis.link=intento[mazo[6]]
+    siete.link=intento[mazo[7]]
+    ocho.link=intento[mazo[8]]
+    nueve.link=intento[mazo[9]]
+    cero.link=intento[mazo[0]]
+}
 function reset(){
     uno.show=false;
     dos.show=false;
     tres.show=false;
     cuatro.show=false;
     cinco.show=false;
-    uno.show2=false;
-    dos.show2=false;
-    tres.show2=false;
-    cuatro.show2=false;
-    cinco.show2=false;
-    displayimg()
+    seis.show=false;
+    siete.show=false;
+    ocho.show=false;
+    nueve.show=false;
+    cero.show=false;
 }
 
 function game(){
