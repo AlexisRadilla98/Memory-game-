@@ -17,7 +17,7 @@ let pokemon=null
 let id=null
 let start=false;
 let loaded=false
-const intento=[0,0,0,0,0];
+const intento=['','','','','',''];
 let eve=['134','135','136','196','197'];
 let i=0;
 let pk;
@@ -108,9 +108,10 @@ auto.addEventListener("click",(e)=>{
             
         }, 2000);
 })
+
 button.addEventListener("click",(e)=>{
     id=searchBox.value
-    
+    console.log(id)
     console.log("i am calling pokemon API")
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`,{
         method:"GET"//,headers:{"content-type": "application/json; charset=utf-8"}
@@ -127,7 +128,6 @@ save.addEventListener("click",(e)=>{
     
     if(i==0){ 
         mix(mazo)
-        console.log(mazo)
     }
     if(i<5){
         const pk=new Pokemon((i+1),pokemonImage.src,false,false)
@@ -289,7 +289,15 @@ function displayimg(){
                 function Pareja(){
                 document.getElementById(nid1).hidden=true
                 document.getElementById(nid2).hidden=true
-                win ++;}
+                win ++;console.log(win)}
+                if(win==5){
+                    console.log('ganaste')
+                    alert("ganaste en "+moves+" movimientos")
+                    //setTimeout(ganaste,800)
+                    function ganaste(){
+                        alert("ganaste en "+moves+" movimientos")
+                    }
+                }
                 
             }else{
                 number.classList.add("class1")
@@ -314,12 +322,7 @@ function displayimg(){
             digito1="";
             digito2="";
         }
-        if(win==5){
-            setTimeout(ganaste,800)
-            function ganaste(){
-                alert("ganaste en "+moves+" movimientos")
-            }
-        }
+        
     })
     
 })
@@ -334,7 +337,10 @@ function mix(array) {
     }
 }
 function changeL(){
+    console.log("Entre")
+    console.log(uno.link, "1")  
     uno.link=intento[mazo[1]]
+    console.log(uno.link, "2")
     dos.link=intento[mazo[2]]
     tres.link=intento[mazo[3]]
     cuatro.link=intento[mazo[4]]
