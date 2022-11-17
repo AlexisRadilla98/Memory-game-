@@ -49,9 +49,64 @@ const pokemonImage=document.getElementById("pokemon-image")
 const pokemonName=document.getElementById("pokemon-name")
 const pokemonInfo=document.getElementById("pokemon-info")
 const searchBox=document.getElementById("searchBox")
+const auto=document.getElementById("Auto")
 const button=document.getElementById("submit")
 const save=document.getElementById("guardar")
 console.log("alexis")
+auto.addEventListener("click",(e)=>{
+    console.log("i am calling eevee")
+    // console.log(intento)
+    
+        for (let i = 0; i <5; i++) {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${eve[i]}/`,{
+                method:"GET"//,headers:{"content-type": "application/json; charset=utf-8"}
+                }).then((res)=>res.json().then(data=>{
+                    pokemon=data
+                    pokemonImage.setAttribute("src", pokemon.sprites.front_default)
+                    pokemonName.innerText=pokemon.name
+                    pokemonInfo.innerHTML=`<span id="height">Height: ${pokemon.height}</span>              <span id="weight">Weight: ${pokemon.weight}</span>`
+                     
+            const pk=new Pokemon((i+1),pokemonImage.src,false,false)
+            const pk2=new Pokemon((i+6),pokemonImage.src,false,false)
+            intento[i+1]=pk.link;
+            // console.log(intento)
+            switch(i+1) {
+                case 1:
+                  uno.link=pk.link
+                  seis.link=pk2.link
+                  break;
+                case 2:
+                    dos.link=pk.link
+                    siete.link=pk2.link
+                  break;
+                case 3:
+                    tres.link=pk.link
+                    ocho.link=pk2.link
+                  break;
+                case 4:
+                    cuatro.link=pk.link
+                    nueve.link=pk2.link
+                  break;
+                case 5:
+                    cinco.link=pk.link
+                    cero.link=pk2.link
+                  break;
+                  // code block
+              } 
+            } ))
+
+             
+        }
+        setTimeout(() => {
+            mix(mazo)
+            // console.log(intento)
+            changeL()
+            loaded=true
+            nombre.innerText="ready"
+            displayimg()
+            
+        }, 2000);
+})
 button.addEventListener("click",(e)=>{
     id=searchBox.value
     
