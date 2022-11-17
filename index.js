@@ -18,6 +18,7 @@ let id=null
 let start=false;
 let loaded=false
 const intento=[0,0,0,0,0];
+let eve=['134','135','136','196','197'];
 let i=0;
 let pk;
 let digito1;
